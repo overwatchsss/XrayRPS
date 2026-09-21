@@ -3,16 +3,16 @@ A Xray backend framework that can easily support many panels.
 
 一个基于Xray的后端框架，支持V2ay,Trojan,Shadowsocks协议，极易扩展，支持多面板对接
 
-Find the source code here: [Mtoly/XrayRP](https://github.com/Mtoly/XrayRP)
+Find the source code here: [overwatchsss/XrayRP](https://github.com/overwatchsss/XrayRP)
 
 # 详细使用教程
 
-[教程](https://Mtoly.github.io/XrayR-doc/)
+[教程](https://overwatchsss.github.io/XrayR-doc/)
 
 # 一键安装
 
 ```
-curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 -o install.sh https://raw.githubusercontent.com/Mtoly/XrayRPS/main/install.sh
+curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 -o install.sh https://raw.githubusercontent.com/overwatchsss/XrayRPS/main/install.sh
 bash install.sh
 rm -f install.sh
 ```
@@ -64,7 +64,7 @@ sudo ss -ltnp | grep -E ':(80|443)([[:space:]]|$)'
 安装示例：
 
 ```
-curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 -o install-machine.sh https://raw.githubusercontent.com/Mtoly/XrayRPS/main/install-machine.sh
+curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 -o install-machine.sh https://raw.githubusercontent.com/overwatchsss/XrayRPS/main/install-machine.sh
 bash install-machine.sh \
   --api-host https://panel.example.com \
   --machine-id 1 \
@@ -103,7 +103,7 @@ sh get-docker.sh
 rm -f get-docker.sh
 # Prefer the Docker Compose plugin supplied by the distribution.
 ```
-1. `git clone https://github.com/Mtoly/XrayRPS`
+1. `git clone https://github.com/overwatchsss/XrayRPS`
 2. `cd XrayRPS`
 3. 编辑config。
 配置文件基本格式如下，Nodes下可以同时添加多个面板，多个节点配置信息，只需添加相同格式的Nodes item即可。

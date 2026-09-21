@@ -139,11 +139,11 @@ download_release_artifact() {
     local release_dir
 
     release_dir=$(mktemp -d "${TMPDIR:-/tmp}/xrayr-release.XXXXXX") || return 1
-    if ! download_https "https://github.com/Mtoly/XrayRP/releases/download/${release_version}/${artifact_name}" "${release_dir}/${artifact_name}"; then
+    if ! download_https "https://github.com/overwatchsss/XrayRP/releases/download/${release_version}/${artifact_name}" "${release_dir}/${artifact_name}"; then
         rm -rf -- "$release_dir"
         return 1
     fi
-    if ! download_https "https://github.com/Mtoly/XrayRP/releases/download/${release_version}/SHA256SUMS" "${release_dir}/SHA256SUMS"; then
+    if ! download_https "https://github.com/overwatchsss/XrayRP/releases/download/${release_version}/SHA256SUMS" "${release_dir}/SHA256SUMS"; then
         rm -rf -- "$release_dir"
         return 1
     fi
@@ -230,7 +230,7 @@ install_XrayR() {
 
     if [ $# == 0 ]; then
         metadata_file=$(mktemp "${TMPDIR:-/tmp}/xrayr-release-metadata.XXXXXX") || exit 1
-        if ! download_https "https://api.github.com/repos/Mtoly/XrayRP/releases/latest" "$metadata_file"; then
+        if ! download_https "https://api.github.com/repos/overwatchsss/XrayRP/releases/latest" "$metadata_file"; then
             rm -f -- "$metadata_file"
             rm -rf -- "$transaction_dir"
             echo -e "${red}检测 XrayR 版本失败，请稍后再试，或手动指定 XrayR 版本安装${plain}"
@@ -285,7 +285,7 @@ install_XrayR() {
         rm -rf -- "$transaction_dir"
         exit 1
     }
-    file="https://raw.githubusercontent.com/Mtoly/XrayRPS/refs/heads/main/XrayR.service"
+    file="https://raw.githubusercontent.com/overwatchsss/XrayRPS/refs/heads/main/XrayR.service"
     if ! download_https "$file" "$service_tmp" || ! install -m 0644 "$service_tmp" "$service_file"; then
         rm -f -- "$service_tmp"
         rollback_transaction "$install_dir" "$backup_dir" "$had_previous" "$service_was_active"
@@ -300,7 +300,7 @@ install_XrayR() {
     if [[ "$had_config" != "true" ]]; then
         cp config.yml "${config_dir}/"
         echo -e ""
-        echo -e "全新安装，请先参看教程：https://github.com/Mtoly/XrayR，配置必要的内容"
+        echo -e "全新安装，请先参看教程：https://github.com/overwatchsss/XrayR，配置必要的内容"
     fi
 
     if [[ ! -f "${config_dir}/dns.json" ]]; then
@@ -364,7 +364,7 @@ install_XrayR() {
         rm -rf -- "$transaction_dir"
         exit 1
     }
-    if ! download_https "https://raw.githubusercontent.com/Mtoly/XrayRPS/main/XrayR.sh" "$management_script" || ! install -m 755 "$management_script" /usr/bin/XrayR; then
+    if ! download_https "https://raw.githubusercontent.com/overwatchsss/XrayRPS/main/XrayR.sh" "$management_script" || ! install -m 755 "$management_script" /usr/bin/XrayR; then
         rm -f -- "$management_script"
         rollback_transaction "$install_dir" "$backup_dir" "$had_previous" "$service_was_active"
         rm -rf -- "$transaction_dir"

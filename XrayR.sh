@@ -105,7 +105,7 @@ before_show_menu() {
 }
 
 install() {
-    run_remote_installer https://raw.githubusercontent.com/Mtoly/XrayRPS/main/install.sh
+    run_remote_installer https://raw.githubusercontent.com/overwatchsss/XrayRPS/main/install.sh
     if [[ $? == 0 ]]; then
         if [[ $# == 0 ]]; then
             start
@@ -129,7 +129,7 @@ update() {
 #        fi
 #        return 0
 #    fi
-    run_remote_installer https://raw.githubusercontent.com/Mtoly/XrayRPS/main/install.sh $version
+    run_remote_installer https://raw.githubusercontent.com/overwatchsss/XrayRPS/main/install.sh $version
     if [[ $? == 0 ]]; then
         echo -e "${green}更新完成，已自动重启 XrayR，请使用 XrayR log 查看运行日志${plain}"
         exit
@@ -770,7 +770,7 @@ update_shell() {
     script_file=$(mktemp "${TMPDIR:-/tmp}/xrayr-management.XXXXXX") || return 1
     if ! curl --fail --silent --show-error --location \
         --proto '=https' --tlsv1.2 \
-        -o "$script_file" https://raw.githubusercontent.com/Mtoly/XrayRPS/main/XrayR.sh; then
+        -o "$script_file" https://raw.githubusercontent.com/overwatchsss/XrayRPS/main/XrayR.sh; then
         rm -f -- "$script_file"
         echo ""
         echo -e "${red}下载脚本失败，请检查本机能否连接 Github${plain}"
@@ -892,7 +892,7 @@ show_usage() {
 show_menu() {
     echo -e "
   ${green}XrayR 后端管理脚本，${plain}${red}不适用于docker${plain}
---- https://github.com/Mtoly/XrayRP ---
+--- https://github.com/overwatchsss/XrayRP ---
   ${green}0.${plain} 修改配置
 ————————————————
   ${green}1.${plain} 安装 XrayR
